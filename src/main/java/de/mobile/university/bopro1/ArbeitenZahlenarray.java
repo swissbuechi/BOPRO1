@@ -96,35 +96,42 @@ public class ArbeitenZahlenarray {
         int[] numbers2 = {3, 5, 6};
 
         System.out.println("Aufgabe 1A:");
-        System.out.println("Numbers:" + Arrays.toString(numbers0));
-        System.out.println("Test: anzahlGeradeZahlen: " + anzahlGeradeZahlen(numbers0));
+        System.out.println("Numbers:"
+                + Arrays.toString(numbers0));
+        System.out.println("Test: anzahlGeradeZahlen: "
+                + anzahlGeradeZahlen(numbers0));
 
         System.out.println("\nAufgabe 1B:");
         System.out.println("Numbers:" + Arrays.toString(numbers0));
-        System.out.println("Test: letztePosition of number 5: " + letztePosition(numbers0, 5));
+        System.out.println("Test: letztePosition of number 5: "
+                + letztePosition(numbers0, 5));
 
         System.out.println("\nAufgabe 1C:");
         System.out.println("Numbers:" + Arrays.toString(numbers0));
-        System.out.println("Test: ohneUngerade: " + Arrays.toString(ohneUngerade(numbers0)));
+        System.out.println("Test: ohneUngerade: "
+                + Arrays.toString(ohneUngerade(numbers0)));
 
         System.out.println("\nAufgabe 1D:");
         System.out.println("Numbers 0:" + Arrays.toString(numbers0));
         System.out.println("Numbers 1:" + Arrays.toString(numbers1));
-        System.out.println("Test: mischen:" + Arrays.toString(mischen(numbers0, numbers1)));
+        System.out.println("Test: mischen:"
+                + Arrays.toString(mischen(numbers0, numbers1)));
 
         System.out.println("\nAufgabe 1E:");
-        System.out.println("Test: init 3x 6: " + Arrays.toString(init(6, 3)));
+        System.out.println("Test: init 3x 6: "
+                + Arrays.toString(init(6, 3)));
 
         System.out.println("\nAufgabe 1F:");
         System.out.println("Numbers 1:" + Arrays.toString(numbers0));
         System.out.println("Numbers 2:" + Arrays.toString(numbers2));
-        System.out.println("Test: arrayInArray: " + arrayInArray(numbers2, numbers0));
+        System.out.println("Test: arrayInArray: "
+                + arrayInArray(numbers2, numbers0));
 
         System.out.println("\nAufgabe 1G:");
         System.out.println("Numbers 1:" + Arrays.toString(numbers0));
         System.out.println("Numbers 2:" + Arrays.toString(numbers2));
-        System.out.println("Test: arrayInArrayRev: " + arrayInArrayRev(numbers2, numbers0));
-
+        System.out.println("Test: arrayInArrayRev: "
+                + arrayInArrayRev(numbers2, numbers0));
     }
 }
 

@@ -33,7 +33,8 @@ public class Othello {
             message = "Game Over!";
             System.out.println(this);
             if (winner != null) {
-                System.out.println("Congratulations, " + winner.getName() + "! You are the winner!");
+                System.out.println("Congratulations, "
+                        + winner.getName() + "! You are the winner!");
             } else {
                 System.out.println("It's a tie. No winner!");
             }
@@ -74,13 +75,15 @@ public class Othello {
 
         private boolean validateInputAndPosition(String coordinates) {
             if (!checkInput(coordinates)) {
-                System.out.println("Invalid coordinates, please try again");
+                System.out.println("Invalid coordinates," +
+                        " please try again");
                 return false;
             }
             int row = Character.getNumericValue(coordinates.charAt(0));
             char column = coordinates.charAt(1);
             if (board.getPosition(row, column) != null) {
-                System.out.println("Field is already used, please try again");
+                System.out.println("Field is already used," +
+                        " please try again");
                 return false;
             }
             return true;
@@ -100,14 +103,18 @@ public class Othello {
             char firstDigit = input.charAt(0);
             char secondDigit = input.charAt(1);
 
-            if (!Character.isDigit(firstDigit) || firstDigit < '1' || firstDigit > '8') {
+            if (!Character.isDigit(firstDigit)
+                    || firstDigit < '1' || firstDigit > '8') {
                 return false;
             }
-            return Character.isLetter(secondDigit) && secondDigit >= 'A' && secondDigit <= 'H';
+            return Character.isLetter(secondDigit)
+                    && secondDigit >= 'A' && secondDigit <= 'H';
         }
 
-        private void convertOpponentStones(String coordinates, Player currentPlayer) {
-            int row = Character.getNumericValue(coordinates.charAt(0)) - 1;
+        private void convertOpponentStones(String coordinates,
+                                           Player currentPlayer) {
+            int row = Character.getNumericValue(coordinates
+                    .charAt(0)) - 1;
             int col = coordinates.charAt(1) - 'A';
 
             int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
@@ -117,17 +124,22 @@ public class Othello {
                 int x = row + dx[dir];
                 int y = col + dy[dir];
 
-                boolean validDirection = isValidDirection(x, y, dx[dir], dy[dir], currentPlayer);
+                boolean validDirection = isValidDirection(x, y,
+                        dx[dir], dy[dir], currentPlayer);
 
                 if (validDirection) {
-                    convertStonesInDirection(x, y, dx[dir], dy[dir], currentPlayer);
+                    convertStonesInDirection(x, y, dx[dir],
+                            dy[dir], currentPlayer);
                 }
             }
         }
 
-        private boolean isValidDirection(int x, int y, int dx, int dy, Player currentPlayer) {
-            while (x >= 0 && x < board.getSize() && y >= 0 && y < board.getSize()) {
-                Player stone = board.getPosition(x + 1, (char) ('A' + y));
+        private boolean isValidDirection(int x, int y, int dx,
+                                         int dy, Player currentPlayer) {
+            while (x >= 0 && x < board.getSize()
+                    && y >= 0 && y < board.getSize()) {
+                Player stone = board.getPosition(x + 1,
+                        (char) ('A' + y));
                 if (stone == null) {
                     return false;
                 } else if (stone == currentPlayer) {
@@ -139,15 +151,19 @@ public class Othello {
             return false;
         }
 
-        private void convertStonesInDirection(int x, int y, int dx, int dy, Player currentPlayer) {
+        private void convertStonesInDirection(
+                int x, int y, int dx, int dy, Player currentPlayer) {
             int row = x + 1;
             int col = y + 1;
-            while (row >= 1 && row <= board.getSize() && col >= 1 && col <= board.getSize()) {
-                Player stone = board.getPosition(row, (char) ('A' + col - 1));
+            while (row >= 1 && row <= board.getSize()
+                    && col >= 1 && col <= board.getSize()) {
+                Player stone = board.getPosition(row,
+                        (char) ('A' + col - 1));
                 if (stone == currentPlayer) {
                     break;
                 }
-                board.setPosition(row, (char) ('A' + col - 1), currentPlayer);
+                board.setPosition(row,
+                        (char) ('A' + col - 1), currentPlayer);
                 row += dx;
                 col += dy;
             }
@@ -158,7 +174,8 @@ public class Othello {
             int boardSize = board.getSize();
             for (int i = 0; i < boardSize; i++) {
                 for (int j = 0; j < boardSize; j++) {
-                    if (board.getPosition(i + 1, (char) ('A' + j)) == null) {
+                    if (board.getPosition(i + 1,
+                            (char) ('A' + j)) == null) {
                         return false;
                     }
                 }
@@ -173,7 +190,8 @@ public class Othello {
 
             for (int i = 0; i < boardSize; i++) {
                 for (int j = 0; j < boardSize; j++) {
-                    Player stone = board.getPosition(i + 1, (char) ('A' + j));
+                    Player stone = board.getPosition(i + 1,
+                            (char) ('A' + j));
                     if (stone == player1) {
                         player1Stones++;
                     } else if (stone == player2) {
@@ -199,12 +217,15 @@ public class Othello {
             StringBuilder sb = new StringBuilder();
             sb.append(message);
             sb.append(System.lineSeparator());
-            sb.append(player1.toString()).append(" VS ").append(player2.toString());
+            sb.append(player1.toString()).append(" VS ")
+                    .append(player2.toString());
             sb.append(System.lineSeparator());
-            sb.append("-".repeat(Math.max(0, boardSize * cellWidth + 1)));
+            sb.append("-".repeat(Math.max(0,
+                    boardSize * cellWidth + 1)));
             sb.append(System.lineSeparator());
             sb.append(board);
-            sb.append("-".repeat(Math.max(0, boardSize * cellWidth + 1)));
+            sb.append("-".repeat(Math.max(0,
+                    boardSize * cellWidth + 1)));
             return sb.toString();
         }
     }
@@ -226,20 +247,27 @@ public class Othello {
         public Player getPosition(int xAxis, char yAxis) {
             int columnIndex = yAxis - 'A';
             int rowIndex = xAxis - 1;
-            if (rowIndex >= 0 && rowIndex < board.length && columnIndex >= 0 && columnIndex < board[0].length) {
+            if (rowIndex >= 0 && rowIndex < board.length
+                    && columnIndex >= 0 && columnIndex
+                    < board[0].length) {
                 return board[rowIndex][columnIndex];
             } else {
-                throw new IllegalArgumentException("Invalid position coordinates.");
+                throw new IllegalArgumentException
+                        ("Invalid position coordinates.");
             }
         }
 
-        public void setPosition(int xAxis, char yAxis, Player player) {
+        public void setPosition(int xAxis,
+                                char yAxis, Player player) {
             int columnIndex = yAxis - 'A';
             int rowIndex = xAxis - 1;
-            if (rowIndex >= 0 && rowIndex < board.length && columnIndex >= 0 && columnIndex < board[0].length) {
+            if (rowIndex >= 0 && rowIndex < board.length
+                    && columnIndex >= 0 && columnIndex
+                    < board[0].length) {
                 board[rowIndex][columnIndex] = player;
             } else {
-                throw new IllegalArgumentException("Invalid position coordinates.");
+                throw new IllegalArgumentException
+                        ("Invalid position coordinates.");
             }
         }
 
@@ -258,8 +286,10 @@ public class Othello {
                 sb.append(i + 1).append(' '); // Row number
                 for (int j = 0; j < boardSize; j++) {
                     Player player = board[i][j];
-                    char symbol = player != null ? player.getSymbol() : '-';
-                    sb.append(String.format("%-" + (cellWidth) + "s", symbol)).append(' ');
+                    char symbol = player != null
+                            ? player.getSymbol() : '-';
+                    sb.append(String.format("%-" + (cellWidth)
+                            + "s", symbol)).append(' ');
                 }
                 sb.append(System.lineSeparator());
             }
