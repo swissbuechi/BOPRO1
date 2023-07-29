@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Othello {
 
-    private Character[][] board;
+    private final Character[][] board;
     private final char player1;
     private final char player2;
     private Character lastPlayBy;
