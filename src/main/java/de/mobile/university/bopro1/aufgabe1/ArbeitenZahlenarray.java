@@ -1,4 +1,4 @@
-package de.mobile.university.bopro1;
+package de.mobile.university.bopro1.aufgabe1;
 
 import java.util.Arrays;
 

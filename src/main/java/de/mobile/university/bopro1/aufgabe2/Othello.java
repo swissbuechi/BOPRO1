@@ -1,4 +1,4 @@
-package de.mobile.university.bopro1;
+package de.mobile.university.bopro1.aufgabe2;
 
 import java.util.Scanner;
 
