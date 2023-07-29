@@ -34,7 +34,7 @@ public class Othello {
             System.out.println(this);
             if (winner != null) {
                 System.out.println("Congratulations, "
-                        + winner.getName() + "! You are the winner!");
+                        + winner.name() + "! You are the winner!");
             } else {
                 System.out.println("It's a tie. No winner!");
             }
@@ -220,12 +220,12 @@ public class Othello {
             sb.append(player1.toString()).append(" VS ")
                     .append(player2.toString());
             sb.append(System.lineSeparator());
-            sb.append("-".repeat(Math.max(0,
-                    boardSize * cellWidth + 1)));
+            final String repeat = "-".repeat(Math.max(0,
+                    boardSize * cellWidth + 1));
+            sb.append(repeat);
             sb.append(System.lineSeparator());
             sb.append(board);
-            sb.append("-".repeat(Math.max(0,
-                    boardSize * cellWidth + 1)));
+            sb.append(repeat);
             return sb.toString();
         }
     }
@@ -283,11 +283,11 @@ public class Othello {
             }
             sb.append(System.lineSeparator());
             for (int i = 0; i < boardSize; i++) {
-                sb.append(i + 1).append(' '); // Row number
+                sb.append(i + 1).append(' ');
                 for (int j = 0; j < boardSize; j++) {
                     Player player = board[i][j];
                     char symbol = player != null
-                            ? player.getSymbol() : '-';
+                            ? player.symbol() : '-';
                     sb.append(String.format("%-" + (cellWidth)
                             + "s", symbol)).append(' ');
                 }
@@ -297,26 +297,11 @@ public class Othello {
         }
     }
 
-    private static class Player {
-        private final char symbol;
-        private final String name;
-
-        Player(char symbol, String name) {
-            this.symbol = symbol;
-            this.name = name;
-        }
-
-        public char getSymbol() {
-            return symbol;
-        }
-
-        public String getName() {
-            return name;
-        }
+    private record Player(char symbol, String name) {
 
         @Override
-        public String toString() {
-            return name + " (" + symbol + ")";
+            public String toString() {
+                return name + " (" + symbol + ")";
+            }
         }
-    }
 }
