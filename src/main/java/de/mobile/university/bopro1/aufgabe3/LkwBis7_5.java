@@ -1,8 +1,6 @@
 package de.mobile.university.bopro1.aufgabe3;
 
 import java.time.Year;
-import java.util.Calendar;
-import java.util.Date;
 
 public class LkwBis7_5 extends LKW {
     public LkwBis7_5(String name,

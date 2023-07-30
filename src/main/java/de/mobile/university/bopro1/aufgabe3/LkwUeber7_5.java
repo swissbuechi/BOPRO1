@@ -43,6 +43,7 @@ public class LkwUeber7_5 extends LKW {
 
     public LkwUeber7_5(LkwUeber7_5 lkwUeber7_5) {
         super(lkwUeber7_5);
+        this.summeKm = lkwUeber7_5.summeKm;
     }
 
     public int getSummeKm() {
