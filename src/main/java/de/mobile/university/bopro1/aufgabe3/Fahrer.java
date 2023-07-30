@@ -1,9 +1,7 @@
 package de.mobile.university.bopro1.aufgabe3;
 
 public abstract class Fahrer {
-    private String pnr; // Auf setter verzichtet,
-    // sollte nicht geändert werden können
-
+    private String pnr;
     private String name;
     private int basisgehalt;
     private final int einstellungsjahr; // Auf setter verzichtet
@@ -27,6 +25,10 @@ public abstract class Fahrer {
 
     public String getPnr() {
         return pnr;
+    }
+
+    public void setPnr(String pnr) {
+        this.pnr = pnr;
     }
 
     public String getName() {
